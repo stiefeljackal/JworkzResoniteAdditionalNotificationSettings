@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Launch Resonite": {
+      "commandName": "Executable",
+      "executablePath": "$(ResonitePath)Resonite.exe",
+      "commandLineArgs": "-Screen -Invisible -LoadAssembly \"Libraries/ResoniteModLoader.dll\" -DontAutoOpenCloudHome",
+      "workingDirectory": "$(ResonitePath)"
+    }
+  }
+}
