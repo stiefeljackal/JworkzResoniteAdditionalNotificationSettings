@@ -75,7 +75,7 @@ public class JworkzResoniteAdditionalNotificationSettings : ResoniteMod
     {
         builder
             .Version(Version)
-            .AutoSave(false);
+            .AutoSave(true);
     }
 
     /// <summary>
