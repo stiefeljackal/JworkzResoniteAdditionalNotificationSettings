@@ -41,8 +41,8 @@ public class JworkzResoniteAdditionalNotificationSettings : ResoniteMod
         new ("allow_msg_invite_received_notifications", "Allows invitation received notifications from contacts to appear.", () => true);
 
     [AutoRegisterConfigKey]
-    public static readonly ModConfigurationKey<short> IS_ONLINE_DELAY_IN_SECONDS =
-        new ("is_online_delay_in_seconds", $"The number of seconds to wait until showing a notification of the same user coming online. Max seconds is {short.MaxValue} (roughly 9 hours).", () => 0);
+    public static readonly ModConfigurationKey<ushort> IS_ONLINE_DELAY_IN_SECONDS =
+        new ("is_online_delay_in_seconds", $"The number of seconds to wait until showing a notification of the same user coming online. Max seconds is {ushort.MaxValue} (roughly 18 hours).", () => 0);
     
     private static ModConfiguration Config;
 
@@ -65,7 +65,7 @@ public class JworkzResoniteAdditionalNotificationSettings : ResoniteMod
 
     public static bool AllowMessageInviteReceivedNotifications => Config?.GetValue(ALLOW_MSG_INVITE_RECEIVED_NOTIFICATIONS) ?? true;
 
-    public static short IsOnlineDelayInSeconds => Config?.GetValue(IS_ONLINE_DELAY_IN_SECONDS) ?? 0;
+    public static ushort IsOnlineDelayInSeconds => Config?.GetValue(IS_ONLINE_DELAY_IN_SECONDS) ?? 0;
 
     /// <summary>
     /// Defines the metadata for the mod and other mod configurations.
