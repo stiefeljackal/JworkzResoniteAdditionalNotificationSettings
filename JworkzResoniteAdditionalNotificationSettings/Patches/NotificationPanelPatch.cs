@@ -22,19 +22,14 @@ public static class NotificationPanelPatch
     [HarmonyPatch("Messages_OnMessageReceived")]
     public static bool MessagesOnMessageReceivedPrefix(Message message)
     {
-        switch(message.MessageType)
+        return message.MessageType switch
         {
-            case MessageType.Text:
-                return ModConfig.AllowMessageTextReceivedNotifications;
-            case MessageType.Object:
-                return ModConfig.AllowMessageObjectReceivedNotifications;
-            case MessageType.Sound:
-                return ModConfig.AllowMessageSoundReceivedNotifications;
-            case MessageType.SessionInvite:
-                return ModConfig.AllowMessageInviteReceivedNotifications;
-            default:
-                return true;
-        }
+            MessageType.Text => ModConfig.AllowMessageTextReceivedNotifications,
+            MessageType.Object => ModConfig.AllowMessageObjectReceivedNotifications,
+            MessageType.Sound => ModConfig.AllowMessageSoundReceivedNotifications,
+            MessageType.SessionInvite => ModConfig.AllowMessageInviteReceivedNotifications,
+            _ => true,
+        };
     }
 
     [HarmonyPrefix]
