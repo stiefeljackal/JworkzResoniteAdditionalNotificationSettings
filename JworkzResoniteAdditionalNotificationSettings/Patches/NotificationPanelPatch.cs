@@ -32,4 +32,11 @@ public static class NotificationPanelPatch
                 return true;
         }
     }
+
+    [HarmonyPrefix]
+    [HarmonyPatch("ContactStatusUpdated")]
+    public static bool ContactStatusUpdatePrefix(ContactData contact)
+    {
+        return ModConfig.AllowIsOnlineNotifications;
+    }
 }
