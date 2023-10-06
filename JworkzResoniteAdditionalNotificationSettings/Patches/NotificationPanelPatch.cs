@@ -33,6 +33,11 @@ public static class NotificationPanelPatch
     }
 
     [HarmonyPrefix]
+    [HarmonyPatch("ContactAdded")]
+    public static bool ContactAddedPrefrix(ContactData data)
+        => !data.Contact.IsContactRequest || ModConfig.AllowContactRequestNotifications;
+
+    [HarmonyPrefix]
     [HarmonyPatch("ContactStatusUpdated")]
     public static bool ContactStatusUpdatePrefix(ContactData contact)
     {
